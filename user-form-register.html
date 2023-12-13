@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký tài khoản</title>
+</head>
+<body>
+  <div id="background-inside">
+    <form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
+      <h3>Họ và tên:</h3>
+      <input type="text" name="Họ và tên">
+      <h3>Email:</h3>
+      <input type="text" name="Email" >
+      <h3>Số điện thoại:</h3>
+      <input type="text" name="phone number">
+      <h3>Giới tính</h3>
+      <label><input name="gender" value="men/male" type="radio">Nam</label>
+      <label><input name="gender" value="women/female" type="radio">Nữ</label><br/><br>
+      <button type="submit">Đăng ký</button>
+    </form>
+  </div>
+  <style>
+    html {
+      text-align: center;
+      background: gray;
+    }
+    #background-inside {
+      background-color: orangered;
+      /*background-size: 80px;*/
+      /*background-position: center;*/
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</body>
+</html>
