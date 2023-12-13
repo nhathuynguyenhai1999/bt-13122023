@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form register</title>
+</head>
+<div align="center">
+  <body>
+    <form style="background-color:yellow;">
+      <h1 style="color:blue;background: deepskyblue">Đăng ký học viên</h1>
+      <strong style="color:dodgerblue">Họ và tên</strong>
+      <input type="textarea" id="name" name="hovaten" placeholder="Nhập đầy đủ"><br/>
+      <strong style="color:dodgerblue;">Ngày sinh</strong>
+      <input type="textarea" row="20"><br/>
+      <strong style="color:dodgerblue;">Giới tính</strong>
+      <label><input name="gender" value="men/male" type="radio">Nam</label>
+      <label><input name="gender" value="women/female" type="radio">Nữ</label><br>
+      <strong style="color:dodgerblue;vertical-align: top;">Địa chỉ</strong>
+      <textarea id="address" name="diachi" row="5" cols="40"></textarea><br/>
+      <strong style="color:dodgerblue">Lớp</strong>
+      <select>
+        <option value="--Lớp--">--Lớp--</option>
+        <option></option>
+      </select><br/>
+      <strong style="color:dodgerblue">Email</strong>
+      <input type="textarea" name="email"><br/>
+      <strong style="color:dodgerblue">Số điện thoại</strong>
+      <input type="textarea" name="number"><br/>
+    </form>
+  </body>
+</div>
+<style>
+  html {
+    text-align: center;
+    background: gray;
+  }
+  form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</html>
