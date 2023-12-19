@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Đăng Ký</title>
+  <style>
+    html {
+      text-align: center;
+      margin : 10px 0;
+    }
+  </style>
+</head>
+<body>
+<form action="./page-dang-ky.html">
+  <h2>Đăng Ký</h2>
+  <label for="dangnhap">Tên người dùng:</label><br/>
+  <input type="text" id="dangnhap" name="userdangnhap" placeholder="Nhập tên đăng nhập" required><br/>
+
+  <label for="email">Email:</label><br/>
+  <input type="email" id="email" name="email" placeholder="nhập email" required><br/>
+
+  <label for="password">Mật khẩu:</label><br/>
+  <input type="password" id="password" name="password" placeholder="mật khẩu" required><br/>
+<br/>
+  <button type="button" onclick="handleLogin()">Đăng Ký</button><br/>
+</form>
+<script src="./user-form-register.js"></script>
+</body>
+</html>
+
