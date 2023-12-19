@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</title>
+</head>
+<body>
+<h2>Xếp hạng học lực</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Học sinh</th>
+    <th>Điểm bài kiểm tra</th>
+    <th>Điểm thi giữa kỳ</th>
+    <th>Điểm thi cuối kỳ</th>
+    <th>Điểm trung bình</th>
+    <th>Xếp hạng</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="text" id="hovaten" name="hovaten" placeholder="Nhập họ và tên đầy đủ"></td>
+    <td><input type="number" id="diem_kiem_tra_A"></td>
+    <td><input type="number" id="diem_giua_ky_A"></td>
+    <td><input type="number" id="diem_cuoi_ky_A"></td>
+    <td id="diem_trung_binh_A"></td>
+    <td id="xep_hang_A"></td>
+  </tr>
+  <!-- Thêm các dòng cho học sinh khác nếu cần -->
+  </tbody>
+</table>
+<button onclick="xepHangHocLuc(diemtrungBinh)">Ugrade</button>
+</body>
+</html>
+<script>
+  function tinhDiemTrungBinh(diemKiemTra, diemGiuaKy, diemCuoiKy) {
+    return (diemKiemTra + diemGiuaKy + diemCuoiKy) / 3;
+  }
+
+  function xepHangHocLuc(diemTrungBinh) {
+    if (diemTrungBinh >= 8) {
+      alert('Giỏi');
+    } else if (diemTrungBinh >= 6.5) {
+      alert('Khá');
+    } else if (diemTrungBinh >= 5) {
+      alert('Trung bình');
+    } else {
+      alert('Yếu');
+    }
+  }
+
+  function capNhatHocSinh(hocSinh, diemKiemTra, diemGiuaKy, diemCuoiKy) {
+    var diemTrungBinh = tinhDiemTrungBinh(diemKiemTra, diemGiuaKy, diemCuoiKy);
+    var xepHang = xepHangHocLuc(diemTrungBinh);
+
+    document.getElementById('diem_trung_binh_' + hocSinh).textContent = diemTrungBinh.toFixed(2);
+    document.getElementById('xep_hang_' + hocSinh).textContent = xepHang;
+  }
+
+  // Lắng nghe sự kiện khi nhập điểm
+  document.getElementById('diem_kiem_tra_A').addEventListener('input', function () {
+    capNhatHocSinh('A', parseFloat(this.value), parseFloat(document.getElementById('diem_giua_ky_A').value), parseFloat(document.getElementById('diem_cuoi_ky_A').value));
+  });
+  document.getElementById('diem_giua_ky_A').addEventListener('input', function () {
+    capNhatHocSinh('A', parseFloat(document.getElementById('diem_kiem_tra_A').value), parseFloat(this.value), parseFloat(document.getElementById('diem_cuoi_ky_A').value));
+  });
+  document.getElementById('diem_cuoi_ky_A').addEventListener('input', function () {
+    capNhatHocSinh('A', parseFloat(document.getElementById('diem_kiem_tra_A').value), parseFloat(document.getElementById('diem_giua_ky_A').value), parseFloat(this.value));
+  });
+
+  document.getElementById('diem_kiem_tra_B').addEventListener('input', function () {
+    capNhatHocSinh('B', parseFloat(this.value), parseFloat(document.getElementById('diem_giua_ky_B').value), parseFloat(document.getElementById('diem_cuoi_ky_B').value));
+  });
+  document.getElementById('diem_giua_ky_B').addEventListener('input', function () {
+    capNhatHocSinh('B', parseFloat(document.getElementById('diem_kiem_tra_B').value), parseFloat(this.value), parseFloat(document.getElementById('diem_cuoi_ky_B').value));
+  });
+  document.getElementById('diem_cuoi_ky_B').addEventListener('input', function () {
+    capNhatHocSinh('B', parseFloat(document.getElementById('diem_kiem_tra_B').value), parseFloat(document.getElementById('diem_giua_ky_B').value), parseFloat(this.value));
+  });
+  // Thêm các sự kiện cho các học sinh khác nếu cần
+</script>

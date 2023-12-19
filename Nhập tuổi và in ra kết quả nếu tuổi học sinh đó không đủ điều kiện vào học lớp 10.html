@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xet dieu kien tuyen sinh vao lop 10</title>
+</head>
+<body>
+<form id="registrationForm">
+  <label for="averageScore">Điểm Trung Bình:</label>
+  <input type="number" id="averageScore"><br/>
+  <label for="age">Tuổi</label>
+  <input type="number" id="age"><br/>
+  <label for="attendanceRate">Tỉ Lệ Điểm Danh (%):</label>
+  <input type="number" id="attendanceRate" required step="1"><br/>
+  <button type="button" onclick="checkConditions()">Kiểm Tra Điều Kiện</button>
+</form>
+</body>
+</html>
+<script>
+  function checkConditions() {
+    let averageScore = document.getElementById('averageScore').value;
+    let attendanceRate = document.getElementById('attendanceRate').value;
+    let tuoi = document.getElementById('age').value;
+
+    if (!isNaN(averageScore) && !isNaN(attendanceRate)) {
+      if (averageScore >= 8 && attendanceRate >= 80 && tuoi>=15) {
+        document.getElementById('result').innerText = 'Chúc mừng! Bạn đủ điều kiện vào lớp 10.';
+      } else {
+        document.getElementById('result').innerText = 'Xin lỗi, bạn không đủ điều kiện vào lớp 10.';
+      }
+    } else {
+      document.getElementById('result').innerText = 'Vui lòng nhập đúng điểm trung bình và tỉ lệ điểm danh.';
+    }
+
+  }
+</script>

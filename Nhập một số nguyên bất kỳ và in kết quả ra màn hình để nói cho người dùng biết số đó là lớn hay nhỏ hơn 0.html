@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</title>
+</head>
+<body>
+  <input type="number" id="number" placeholder="Nhập một số nguyên">
+  <button type="submit" onclick="checkConditions()">OKKKK</button>
+</body>
+</html>
+<script>
+  function checkConditions() {
+    let so = document.getElementById('number').value;
+    if (so > 0) {
+      alert("Đây là số nguyên");
+    } else {
+      alert("Đây không phải là số nguyên");
+    }
+  }
+</script>

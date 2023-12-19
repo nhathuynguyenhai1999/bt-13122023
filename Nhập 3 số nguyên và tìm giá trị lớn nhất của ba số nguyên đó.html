@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</title>
+</head>
+<body>
+  <input type="number" id="so1" placeholder="Nhập số nguyên bất kỳ"><br/>
+  <input type="number" id="so2" placeholder="Nhập số nguyên bất kỳ"><br/>
+  <input type="number" id="so3" placeholder="Nhập số nguyên bất kỳ">
+  <button type="button" onclick="checkConditions()">Check</button>
+</body>
+</html>
+<script>
+  function checkConditions(){
+    let a = parseInt(document.getElementById('so1').value);
+    let b = parseInt(document.getElementById('so2').value);
+    let c = parseInt(document.getElementById('so3').value);
+    if (a > b && a > c) {
+      alert(a + "giá trị lớn nhất")
+    } else if (b > a && b > c) {
+      alert(b + "giá trị lớn nhất")
+    } else {
+      alert(c + "giá trị lớn nhất")
+    }
+  }
+</script>

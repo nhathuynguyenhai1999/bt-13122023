@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng </title>
+</head>
+<body>
+<h1>Tính hoa hồng</h1>
+<label for="doanhSo">Nhập mức doanh số:</label>
+<input type="text" id="doanhSo">
+<button onclick="tinhHoaHong()">Tính hoa hồng</button>
+<p id="ketQua"></p>
+</body>
+</html>
+<script>
+  function tinhHoaHong() {
+    // Lấy giá trị doanh số từ ô input
+    var doanhSo = parseFloat(document.getElementById("doanhSo").value);
+
+    // Kiểm tra nếu doanh số không phải là số
+    if (isNaN(doanhSo)) {
+      alert("Vui lòng nhập một số hợp lệ.");
+      return;
+    }
+
+    // Tính toán hoa hồng (ví dụ: 10%)
+    var tyLeHoaHong = 0.1; // 10%
+    var hoaHong = doanhSo * tyLeHoaHong;
+
+    // Hiển thị kết quả
+    document.getElementById("ketQua").innerHTML = "Hoa hồng của bạn là: $" + hoaHong.toFixed(2);
+  }
+</script>
