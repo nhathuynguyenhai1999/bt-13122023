@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./.vscode/good-fast-cheap.css">
+    <title>Good, Fast, Cheap App</title>
+    <style>
+        /* Thiết lập định dạng cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Thiết lập định dạng cho ô chọn */
+        label {
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Ô chọn "Good" -->
+    <label>
+        <input type="radio" name="option" value="good" class="check good"> Good
+    </label><br/>
+
+    <!-- Ô chọn "Fast" -->
+    <label>
+        <input type="radio" name="option" value="fast" class="check fast"> Fast
+    </label><br/>
+
+    <!-- Ô chọn "Cheap" -->
+    <label>
+        <input type="radio" name="option" value="cheap" class="check cheap" onchange="changed()"> Cheap
+    </label><br/>
+</div>
+
+<!-- Kết quả hiển thị -->
+<div id="result"></div>
+
+<script>
+    function displayResult(selectedOption) {
+        var good = document.querySelector('.good'),
+            fast = document.querySelector('.fast'),
+            cheap = document.querySelector('.cheap');
+
+        function changed(el){
+            isGood = good.checked;
+            isFast = fast.checked;
+            isCheap = cheap.checked;
+
+            if(isGood && isFast && isCheap && el == cheap){
+                fast.checked = false;
+            }
+            if(isGood && isCheap && isFast && el == fast){
+                good.checked = false;
+            }
+            if(isCheap && isFast && isGood && el == good){
+                cheap.checked = false;
+            }
+
+        }
+
+    }
+</script>
+</body>
+</html>
