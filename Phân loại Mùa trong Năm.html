@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phân loại Mùa trong Năm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>Chương trình Phân loại Mùa trong Năm</h2>
+<label for="monthInput">Nhập số tháng (1-12): </label>
+<input type="number" id="monthInput" min="1" max="12">
+<button onclick="classifySeason()">Phân loại Mùa</button>
+<p id="result"></p>
+
+<script>
+  function classifySeason() {
+    var monthInput = document.getElementById("monthInput").value;
+    var resultElement = document.getElementById("result");
+
+    // Kiểm tra xem giá trị nhập vào có hợp lệ không
+    if (monthInput >= 1 && monthInput <= 12) {
+      // Phân loại mùa dựa trên tháng
+      var season = "";
+      switch (parseInt(monthInput)) {
+        case 1:
+        case 2:
+        case 12:
+          season = "Mùa Đông";
+          break;
+        case 3:
+        case 4:
+        case 5:
+          season = "Mùa Xuân";
+          break;
+        case 6:
+        case 7:
+        case 8:
+          season = "Mùa Hè";
+          break;
+        case 9:
+        case 10:
+        case 11:
+          season = "Mùa Thu";
+          break;
+        default:
+          break;
+      }
+
+      resultElement.innerHTML = "Tháng " + monthInput + " thuộc mùa " + season + ".";
+    } else {
+      resultElement.innerHTML = "Vui lòng nhập số tháng hợp lệ (từ 1 đến 12).";
+    }
+  }
+</script>
+</body>
+</html>

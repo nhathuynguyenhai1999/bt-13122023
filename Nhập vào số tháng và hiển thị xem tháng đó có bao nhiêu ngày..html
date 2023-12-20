@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Số ngày trong tháng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>Nhập số tháng và hiển thị số ngày</h2>
+<label for="monthInput">Nhập số tháng (1-12): </label>
+<input type="number" id="monthInput" min="1" max="12">
+<button onclick="calculateDays()">Hiển thị số ngày</button>
+<p id="result"></p>
+
+<script>
+  function calculateDays() {
+    var monthInput = document.getElementById("monthInput").value;
+    var resultElement = document.getElementById("result");
+
+    // Kiểm tra xem giá trị nhập vào có hợp lệ không
+    if (monthInput >= 1 && monthInput <= 12) {
+      // Tính số ngày trong tháng
+      var daysInMonth = new Date(2023, monthInput, 0).getDate();
+      resultElement.innerHTML = "Tháng " + monthInput + " có " + daysInMonth + " ngày.";
+    } else {
+      resultElement.innerHTML = "Vui lòng nhập số tháng hợp lệ (từ 1 đến 12).";
+    }
+  }
+</script>
+</body>
+</html>

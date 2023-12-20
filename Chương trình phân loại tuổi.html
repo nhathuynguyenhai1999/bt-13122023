@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phân loại Tuổi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>Chương trình Phân loại Tuổi</h2>
+<label for="birthYearInput">Nhập năm sinh: </label>
+<input type="number" id="birthYearInput" min="1900" max="2023">
+<button onclick="classifyAge()">Phân loại Tuổi</button>
+<p id="result"></p>
+
+<script>
+  function classifyAge() {
+    var birthYearInput = document.getElementById("birthYearInput").value;
+    var resultElement = document.getElementById("result");
+
+    // Kiểm tra xem giá trị nhập vào có hợp lệ không
+    if (birthYearInput >= 1900 && birthYearInput <= 2023) {
+      // Tính tuổi
+      var currentYear = new Date().getFullYear();
+      var age = currentYear - birthYearInput;
+
+      // Phân loại tuổi
+      var ageCategory = "";
+      if (age < 18) {
+        ageCategory = "Dưới 18 tuổi";
+      } else if (age >= 18 && age < 60) {
+        ageCategory = "Từ 18 đến 59 tuổi";
+      } else {
+        ageCategory = "60 tuổi trở lên";
+      }
+
+      resultElement.innerHTML = "Tuổi của bạn là " + age + " tuổi. " + ageCategory;
+    } else {
+      resultElement.innerHTML = "Vui lòng nhập năm sinh hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>
+

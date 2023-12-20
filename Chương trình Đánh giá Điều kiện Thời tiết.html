@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chương trình Đánh giá Điều kiện Thời tiết</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>Chương trình Đánh giá Điều kiện Thời tiết</h2>
+<label for="temperatureInput">Nhập nhiệt độ (°C): </label>
+<input type="number" id="temperatureInput">
+<button onclick="evaluateWeatherCondition()">Đánh giá Điều kiện Thời tiết</button>
+<p id="result"></p>
+
+<script>
+  function evaluateWeatherCondition() {
+    var temperatureInput = document.getElementById("temperatureInput").value;
+    var resultElement = document.getElementById("result");
+
+    // Kiểm tra xem nhiệt độ nhập vào có hợp lệ không
+    if (!isNaN(temperatureInput)) {
+      var temperature = parseFloat(temperatureInput);
+
+      // Đánh giá điều kiện thời tiết dựa trên nhiệt độ
+      var condition = "";
+      if (temperature < 0) {
+        condition = "Thời tiết rất lạnh.";
+      } else if (temperature >= 0 && temperature < 10) {
+        condition = "Thời tiết lạnh.";
+      } else if (temperature >= 10 && temperature < 20) {
+        condition = "Thời tiết mát mẻ.";
+      } else if (temperature >= 20 && temperature < 30) {
+        condition = "Thời tiết ấm áp.";
+      } else {
+        condition = "Thời tiết nóng.";
+      }
+
+      resultElement.innerHTML = "Nhiệt độ hiện tại là: " + temperature + " °C<br>";
+      resultElement.innerHTML += "Đánh giá điều kiện thời tiết: " + condition;
+    } else {
+      resultElement.innerHTML = "Vui lòng nhập nhiệt độ hợp lệ.";
+    }
+  }
+</script>
+</body>
+</html>

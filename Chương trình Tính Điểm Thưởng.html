@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chương trình Tính Điểm Thưởng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+<h2>Chương trình Tính Điểm Thưởng</h2>
+<label for="scoreInput">Nhập số điểm (0-100): </label>
+<input type="number" id="scoreInput" min="0" max="100">
+<button onclick="calculateBonus()">Tính Điểm Thưởng</button>
+<p id="result"></p>
+
+<script>
+  function calculateBonus() {
+    var scoreInput = document.getElementById("scoreInput").value;
+    var resultElement = document.getElementById("result");
+
+    // Kiểm tra xem số điểm nhập vào có hợp lệ không
+    if (scoreInput >= 0 && scoreInput <= 100) {
+      // Tính điểm thưởng dựa trên số điểm
+      var bonus = 0;
+      if (scoreInput >= 90) {
+        bonus = 10;
+      } else if (scoreInput >= 80) {
+        bonus = 5;
+      } else {
+        bonus = 0;
+      }
+
+      resultElement.innerHTML = "Số điểm của bạn là: " + scoreInput + "<br>";
+      resultElement.innerHTML += "Điểm thưởng của bạn là: " + bonus;
+    } else {
+      resultElement.innerHTML = "Vui lòng nhập số điểm hợp lệ (từ 0 đến 100).";
+    }
+  }
+</script>
+</body>
+</html>
